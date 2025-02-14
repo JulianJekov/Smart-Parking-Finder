@@ -1,4 +1,4 @@
-package com.smartparking.smart_parking_finder;
+package com.smart.parking;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
