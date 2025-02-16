@@ -1,5 +1,6 @@
 package com.smart.parking.model.dto.auth;
 
+import com.smart.parking.model.enums.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -17,4 +18,6 @@ public class UserRegisterDTO {
     @Size(min = 6, message = "Password must be at least 6 characters")
     @NotBlank(message = "Password is required")
     private String password;
+
+    private Role role;
 }
