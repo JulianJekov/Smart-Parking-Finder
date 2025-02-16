@@ -4,10 +4,6 @@ import com.smart.parking.model.dto.auth.UserLoginDTO;
 import com.smart.parking.model.dto.auth.UserRegisterDTO;
 import com.smart.parking.service.AuthService;
 import jakarta.validation.Valid;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,11 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AuthController {
 
     private final AuthService authService;
-    private final AuthenticationManager authenticationManager;
 
-    public AuthController(AuthService authService, AuthenticationManager authenticationManager) {
+    public AuthController(AuthService authService) {
         this.authService = authService;
-        this.authenticationManager = authenticationManager;
     }
 
     @ModelAttribute
