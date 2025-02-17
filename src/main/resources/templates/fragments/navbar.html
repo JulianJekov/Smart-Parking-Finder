@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/" style="color: #7f7fd5; font-weight: 600;">
+      <i class="fas fa-parking"></i> Smart Parking Finder
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/find-parking">Find Parking</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login" sec:authorize="!isAuthenticated()">Login</a>
+        </li>
+
+        <li class="nav-item">
+          <form th:action="@{/logout}" th:method="POST">
+            <input type="submit" class="nav-link btn btn-link font-weight-bold"
+                   sec:authorize="isAuthenticated()"
+                   th:value="Logout">
+          </form>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+</body>
+</html>

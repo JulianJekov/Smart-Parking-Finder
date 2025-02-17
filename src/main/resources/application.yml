@@ -25,3 +25,11 @@ spring:
       enabled: true
     restart:
       enabled: true
+google:
+  maps:
+    api:
+      key: ${MAPS_API}
+#jwt:
+#  app_name: smartParking
+#  secret_key: ${JWT_KEY}
+#  expires: 3600
