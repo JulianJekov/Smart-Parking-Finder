@@ -21,7 +21,7 @@ public class CustomUserDetails implements UserDetails {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.authorities = Collections.singletonList(new SimpleGrantedAuthority(role.name()));
+        this.authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + role.name()));
     }
 
     @Override
