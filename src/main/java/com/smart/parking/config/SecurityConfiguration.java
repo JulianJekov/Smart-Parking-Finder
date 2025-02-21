@@ -27,6 +27,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/", "/login", "/register", "/css/**", "/js/**").permitAll()
+                        .requestMatchers("/find-parking").hasRole("USER")
+                        .requestMatchers("/business/**").hasRole("BUSINESS_OWNER")
                         .anyRequest().authenticated()
                 )
                 .formLogin(formLogin -> formLogin
