@@ -2,6 +2,7 @@ package com.smart.parking.controller;
 
 import com.smart.parking.model.dto.auth.UserLoginDTO;
 import com.smart.parking.model.dto.auth.UserRegisterDTO;
+import com.smart.parking.model.enums.Role;
 import com.smart.parking.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -30,9 +31,15 @@ public class AuthController {
         return new UserLoginDTO();
     }
 
+    @ModelAttribute("allRoles")
+    public Role[] allRoles() {
+        return Role.values();
+    }
+
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute("userRegisterDTO", userRegisterDTO());
+        model.addAttribute("roles", allRoles());
         return "register";
     }
 

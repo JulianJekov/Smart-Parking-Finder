@@ -48,8 +48,10 @@
                         <div class="mb-3">
                             <label class="form-label">Select Role</label>
                             <select class="form-select" th:field="*{role}">
-                                <option value="USER">User</option>
-                                <option value="BUSINESS">Business</option>
+                                <option value="">- Select Role</option>
+                                <option th:each="role: ${allRoles}"
+                                        th:value="${role}"
+                                        th:text="${role}">
                             </select>
                             <div class="text-danger small mt-1" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></div>
                         </div>
