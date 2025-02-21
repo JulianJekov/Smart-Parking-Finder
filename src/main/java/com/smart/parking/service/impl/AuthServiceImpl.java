@@ -28,7 +28,7 @@ public class AuthServiceImpl implements AuthService {
         }
         User user = modelMapper.map(userRegisterDTO, User.class);
         user.setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
-        user.setRole(Role.USER);
+        user.setRole(userRegisterDTO.getRole());
         userRepository.save(user);
     }
 }
